@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<link rel="icon" href="/img/pretty.png" />
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+		integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" />
+	<link rel="stylesheet" href="/css/style.css" />
+	<script src="https://kit.fontawesome.com/b15d9bd0c0.js" crossorigin="anonymous"></script>
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<title>Makeup</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-md navbar-light rounded">
+		<div class="collapse navbar-collapse justify-content-center" id="navbarsExample10">
+			<ul class="navbar-nav">
+				<li class="nav-item text-center">
+					<img src="/img/m.png" alt="" />
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<section>
+		<div class="container">
+			<div class="mid">
+				<div class="log mt-5 mb-5">
+					<div class="row d-flex align-items-center">
+						<form action="" id="loginForm">
+							<div class="col-md-12 text-center" data-aos="fade-up" data-aos-duration="1000">
+								<div class="logo text-center">
+									<img src="/img/pretty.png" alt="" />
+								</div>
+								<h4 class="font-weight-bold">LOGIN</h4>
+								<hr />
+								<label for="">Email:</label>
+								<input type="email" class="form-control" required name="email" />
+								<label for="">Password:</label>
+								<input type="password" class="form-control" required name="password" />
+								<button type="submit" class="btn loginbtn mt-3 form-control">Login</button>
+								<hr />
+								<small>Don't have an account yet?
+									<span class="info text-info" data-toggle="modal" data-target="#reg">
+										register here!</span></small>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="row">
+			<div class="col-md-4 text-left mt-5" data-aos="fade-up" data-aos-duration="1000">
+				<h3>CONTACT US</h3>
+				<div class="">
+					<i class="fa-solid fa-location-dot"></i> Address : Carmen Annex,
+					Ozamis City <br />
+					<i class="fa-solid fa-phone"></i> Call : +63 566 727 140 <br />
+					<i class="fa-solid fa-envelope"></i> Email : epedave2@gmail.com
+					<br />
+				</div>
+			</div>
+			<div class="col-md-4 mt-5" data-aos="fade-up" data-aos-duration="1000">
+				<img src="/img/glamour.png" alt="" />
+				<p>
+					Contact us today and get ready to embrace your own unique kind of
+					beauty with our makeup expertise.
+				</p>
+				<div class="soc">
+					<i class="fa-brands fa-square-instagram fa-2xl mr-3"></i>
+					<i class="fa-brands fa-square-facebook fa-2xl mr-3"></i>
+					<i class="fa-brands fa-square-x-twitter fa-2xl"></i>
+				</div>
+			</div>
+			<div class="col-md-4 text-right mt-5" data-aos="fade-up" data-aos-duration="1000">
+				<h3>BEST SERVICE</h3>
+				<p>Euphoria Makeup</p>
+				<p>Occasion Makeup</p>
+				<p>Fresh Makeup for Men</p>
+			</div>
+		</div>
+	</footer>
+	<!-- register -->
+	<div class="modal fade" id="reg" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">
+						Registration Form
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form action="" id="registerForm">
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-md-6">
+								<label for="">Firtsname:</label>
+								<input type="text" class="form-control" name="firstname" required />
+							</div>
+							<div class="col-md-6">
+								<label for="">Lastname:</label>
+								<input type="text" class="form-control" name="lastname" required />
+							</div>
+							<div class="col-md-12">
+								<label for="">Gender:</label>
+								<select name="gender" class="form-control" required>
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
+								</select>
+							</div>
+							<div class="col-md-12">
+								<label for="">Contact Number:</label>
+								<input type="number" class="form-control" name="phonenumber" required />
+							</div>
+							<div class="col-md-12">
+								<label for="">Address:</label>
+								<textarea name="address" rows="2" class="form-control" required></textarea>
+							</div>
+							<div class="col-md-12">
+								<label for="">Email:</label>
+								<input type="email" class="form-control" name="email" required />
+							</div>
+
+
+
+							<div class="col-md-12">
+								<hr />
+								<label for="">Password:</label>
+								<input type="password" class="form-control" name="password" />
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-light" data-dismiss="modal">
+							Close
+						</button>
+						<button type="submit" class="btn prim">Confirm</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+	<script>
+		AOS.init();
+	</script>
+	<script src="/lib/js/jquery-3.7.1.min.js"></script>
+	<script src="/lib/js/bootstrap.bundle.min.js"></script>
+	<script src="/lib/js/datatables.js"></script>
+	<script src="/lib/js/js.cookie.min.js"></script>
+	<script src="/lib/js/toastr.min.js"></script>
+	<script src="/js/main.js"></script>
+	<script src="/js/guest/login.js"></script>
+	<script src="/js/guest/register.js"></script>
+</body>
+
+</html>

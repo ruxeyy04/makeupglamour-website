@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description"
+		content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3" />
+	<title>Makeup Glamour</title>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+	<script src="https://kit.fontawesome.com/b15d9bd0c0.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap4.css">
+	<link rel="stylesheet" href="/css/astyle.css" />
+	<link rel="stylesheet" href="/lib/css/toastr.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+	<div class="page-wrapper chiller-theme toggled">
+		<a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+			<i class="fas fa-bars"></i>
+		</a>
+		<nav id="sidebar" class="sidebar-wrapper">
+			<div class="sidebar-content">
+				<div class="sidebar-brand">
+					<a href="#">Incharge</a>
+					<div id="close-sidebar">
+						<i class="fas fa-times"></i>
+					</div>
+				</div>
+				<div class="sidebar-header">
+					<div class="user-pic">
+						<img class="img-responsive img-rounded profile" src="" alt="User picture" />
+					</div>
+					<div class="user-info">
+						<span class="user-name"><span class="name"></span></span>
+						<span class="user-role">Incharge</span>
+					</div>
+				</div>
+
+				<!-- sidebar-search  -->
+				<div class="sidebar-menu">
+					<ul>
+						<li class="header-menu">
+							<span>General</span>
+						</li>
+						<li class="sidebar">
+							<a href="index.html">
+								<i class="fa fa-tachometer-alt"></i>
+								<span>Appointments</span>
+							</a>
+						</li>
+						<li class="sidebar">
+							<a href="services.html">
+								<i class="fa fa-shopping-cart"></i>
+								<span>Services</span>
+							</a>
+						</li>
+						<li class="sidebar">
+							<a href="profile.html">
+								<i class="fa fa-user"></i>
+								<span>Profile</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- sidebar-menu  -->
+			</div>
+			<!-- sidebar-content  -->
+			<div class="sidebar-footer">
+				<a href="#" data-toggle="modal" data-target="#logout">
+					<i class="fa fa-power-off"></i><span> Logout</span>
+				</a>
+			</div>
+		</nav>
+		<!-- sidebar-wrapper  -->
+		<main class="page-content">
+			<div class="container-fluid">
+				<h2>Dashboard</h2>
+				<hr />
+				<div class="row">
+					<div class="col-md-12">
+						<h4>Appointments</h4>
+						<div class="d-flex align-items-center justify-content-center m-4">
+							<select class="form-control" id="statusFilter">
+								<option value="">Show All</option>
+								<option value="Pending">Pending</option>
+								<option value="Accepted">Accepted</option>
+								<option value="Cancelled">Cancelled</option>
+								<option value="Rejected">Rejected</option>
+							</select>
+						</div>
+						<div class="table-responsive mt-5">
+							<table class="table table-striped" id="appointments">
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Service</th>
+										<th>Appointment Date</th>
+										<th>Price</th>
+										<th>Status</th>
+										<th>Created At</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<hr />
+			</div>
+		</main>
+		<!-- page-content" -->
+	</div>
+	<!-- page-wrapper -->
+	<div class="modal fade" id="logout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel"></h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="caution d-flex justify-content-center align-items-center">
+						<i class="fa-solid fa-triangle-exclamation fa-2xl text-danger"></i>
+						<h6>Are you sure you want to log-out?</h6>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">
+						Close
+					</button>
+					<button type="button" class="btn btn-danger" id="logoutBtn">Logout</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="update" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<form class="modal-content" id="updateAppointment">
+				<div class="modal-header">
+					<h5 class="modal-title">Update Appointment</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-12">
+							<input type="hidden" name="appointmentid" id="appointmentid">
+							<label for="">Status</label>
+							<select name="status" id="status" class="form-control">
+								<option value="Pending">Pending</option>
+								<option value="Accepted">Accepted</option>
+								<option value="Rejected">Rejected</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">
+						Close
+					</button>
+					<button type="submit" class="btn btn-primary">Update</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="/lib/js/jquery-3.7.1.min.js"></script>
+	<script src="/lib/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+	<script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap4.js"></script>
+	<script src="/lib/js/toastr.min.js"></script>
+	<script src="/lib/js/js.cookie.min.js"></script>
+	<script src="/js/ascript.js"></script>
+	<script src="/js/main.js"></script>
+	<script src="/js/incharge/profile.js"></script>
+	<script src="/js/incharge/appointments.js"></script>
+</body>
+
+</html>
